@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import Item from '@mui/material/Grid';
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {getPlayStatus, 
         getScore, 
         getWeapon, 
@@ -11,22 +11,14 @@ import {getPlayStatus,
         getMessage,
         setResult
 } from "../features/gameSlice";
-import { makeStyles } from "@mui/styles"
 import RulesButton from "./RulesButton";
 import RulesModal from "./RulesModal";
 import SelectWeapon from "./SelectWeapon";
 import GameResult from "./GameResult";
 
-const useStyles = makeStyles({
-    score:{
-        bottom:'0',
-        padddingLeft:10
-    }
-})
-
 const Game = () => {
-    const classes = useStyles()
     const storedScore = useSelector(getScore)
+    const score = useSelector(getScore)
     const weapon = useSelector(getWeapon)
     const play = useSelector(getPlayStatus)
     const dispatch = useDispatch()
@@ -38,7 +30,7 @@ const Game = () => {
         const storedResult = window.localStorage.getItem('gameResult')
         //if there is not gameResult in localStorage initiate one
         if(!storedResult){
-            window.localStorage.setItem('gameResult', '')
+            window.localStorage.setItem('gameResult', score)
         }else{
             //if there is stored result save it in Redux store
             //Number function is very important to prevent saving numeric value as string in redux state
@@ -103,7 +95,7 @@ const Game = () => {
 
             <Grid item xs={12} md={12} lg={12} xl={12} textAlign={'center'}>
                 <Item>
-                    <Typography variant="h1" marginTop={10}>
+                    <Typography variant="h1" marginTop={2}>
                         Pick One!
                     </Typography>
                 </Item>
