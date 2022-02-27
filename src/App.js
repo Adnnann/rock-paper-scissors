@@ -1,12 +1,12 @@
 import React from 'react';
-import { gameSlice } from './features/gameSlice';
 import './App.css';
+import Game from './components/Game';
+import { StylesProvider } from "@mui/styles";
+
 
 function App() {
   return (
-    <div className="App">
-     <h1>Hello</h1>
-    </div>
+     <Game />
   );
 }
 
