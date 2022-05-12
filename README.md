@@ -20,3 +20,9 @@ Main logic of the game is in the Game component.
 
 ## UI
 Material-UI is used in the app
+
+## Try on sandbox
+
+```
+https://codesandbox.io/s/lucid-hypatia-9c1dzs
+```
